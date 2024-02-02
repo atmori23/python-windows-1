@@ -1,0 +1,48 @@
+# Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
+# More GitHub Actions for Azure: https://github.com/Azure/actions
+
+name: Build and deploy Python app to Azure Web App - appservicespecialistosspythonwin1ifkjgy6kaetkw
+
+on:
+  push:
+    branches:
+      - master
+  workflow_dispatch:
+
+jobs:
+  build-and-deploy:
+    runs-on: windows-latest
+    permissions:
+      id-token: write #This is required for requesting the JWT
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python version
+        uses: actions/setup-python@v1
+        with:
+          python-version: '3.4.0'
+
+      - name: Install Python dependencies
+        run: |
+          python -m venv env
+          .\\env\\Scripts\\activate
+          pip install -r requirements.txt
+
+      - name: Zip the application files
+        run: Compress-Archive .\\* app.zip
+      
+      - name: Login to Azure
+        uses: azure/login@v1
+        with:
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_1D969B58925042928517985BA113E1AE }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_DFD26B9121974C97B7D81F21F01273F7 }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_B4F070B0BB024D64B12249C808801342 }}
+
+      - name: 'Deploy to Azure Web App'
+        uses: azure/webapps-deploy@v2
+        with:
+          app-name: 'appservicespecialistosspythonwin1ifkjgy6kaetkw'
+          slot-name: 'Production'
+          package: '.\\app.zip'
+          
