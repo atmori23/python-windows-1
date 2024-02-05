@@ -37,6 +37,7 @@ jobs:
           client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_d614116e667e44bf92abff7cadfe7bc4 }}
           tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_72f988bf86f141af91ab2d7cd011db47 }}
           subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_082a8361a8474a6ea1f4ec1791dbf08e }}
+          client-secret: ${{ secrets.AZUREAPPSERVICE_CLIENTSECRET b9fdf3d643444cbdad1d6886bbcb9df7 }}
 
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v2
