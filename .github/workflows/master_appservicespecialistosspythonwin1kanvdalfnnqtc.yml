@@ -21,7 +21,7 @@ jobs:
       - name: Set up Python version
         uses: actions/setup-python@v1
         with:
-          python-version: '3.8.10'
+          python-version: '3.4.0'
 
       - name: Install Python dependencies
         run: |
@@ -35,9 +35,9 @@ jobs:
       - name: Login to Azure
         uses: azure/login@v1
         with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_C72CE20D38864197A16D894585A447F6 }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_2A02A75B1871492794098F6FB9FCA6BC }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_EC99B3CEC1154E798166609ADA53CB6A }}
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_F988991BA8334486A96C7658940BDE02 }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_E50DB96815F341E6B4343950282FAC1A }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_B4BB5A46ED9B4B25A0B0DA9BB0F2317B }}
 
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v2
