@@ -38,6 +38,7 @@ jobs:
           tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID }}
           subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID }}
           creds: ${{ secrets.AZURE_CREDENTIALS }}
+          auth-type: 'servicePrincipal'
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v2
         with:
