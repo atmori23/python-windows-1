@@ -37,51 +37,10 @@ jobs:
           client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID }}
           tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID }}
           subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID }}
-          client-secrets: ${{ # Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
-# More GitHub Actions for Azure: https://github.com/Azure/actions
-
-name: Build and deploy Python app to Azure Web App - appservicespecialistosspythonwin1kanvdalfnnqtc
-
-on:
-  push:
-    branches:
-      - master
-  workflow_dispatch:
-
-jobs:
-  build-and-deploy:
-    runs-on: windows-latest
-    permissions:
-      id-token: write #This is required for requesting the JWT
-
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Set up Python version
-        uses: actions/setup-python@v1
-        with:
-          python-version: '3.8.10'
-      - name: Install Python dependencies
-        run: |
-          python -m venv env
-          .\\env\\Scripts\\activate
-          pip install -r requirements.txt
-
-      - name: Zip the application files
-        run: Compress-Archive .\\* app.zip
       
-      - name: Login to Azure
-        uses: azure/login@v1
-        with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID }}
-          client-secret: ${{ secrets.AZUREAPPSERVICE_CLIENTSECRET }}
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v2
         with:
-          app-name: 'appservicespecialistosspythonwin1kanvdalfnnqtc'
-          slot-name: 'Production'
-          package: '.\\app.zip'
-      
-          
+            app-name: 'appservicespecialistosspythonwin1ifkjgy6kaetkw'
+            slot-name: 'Production'
+            package: '.\\app.zip'
