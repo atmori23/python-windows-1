@@ -38,7 +38,7 @@ jobs:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
 
       - name: Check Web App Status
-        run: az webapp show --name appservicespecialistosspythonwin1kanvdalfnnqtc
+        run: az webapp show --name appservicespecialistosspythonwin1kanvdalfnnqtc --resource-group AppService.Specialist.OSS.PythonWin.1
 
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v3
