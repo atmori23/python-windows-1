@@ -36,6 +36,10 @@ jobs:
         with:
           auth-type: 'SERVICE_PRINCIPAL'
           creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      - name: Check Web App Status
+        run: az webapp show --name appservicespecialistosspythonwin1kanvdalfnnqtc
+
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v3
         with:
