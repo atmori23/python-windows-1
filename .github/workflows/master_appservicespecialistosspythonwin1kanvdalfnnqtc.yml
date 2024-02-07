@@ -34,8 +34,8 @@ jobs:
       - name: Login to Azure
         uses: azure/login@v1.6.1
         with:
-          auth-type: 'IDENTITY'
-          
+          auth-type: 'SERVICE_PRINCIPAL'
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v3
         with:
