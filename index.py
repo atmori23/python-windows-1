@@ -25,5 +25,6 @@ app.layout = html.Div(children=[
 ])
 
 if __name__ == '__main__':
-    port= os.environ.get('PORT')
-    app.run_server(debug=False, host='0.0.0.0', port = port)
+    # 環境変数からポートを取得し、設定されていなければデフォルト値(例: 8050)を使用
+    port = int(os.environ.get('PORT', 8050))
+    app.run_server(debug=False, host='0.0.0.0', port=port)
